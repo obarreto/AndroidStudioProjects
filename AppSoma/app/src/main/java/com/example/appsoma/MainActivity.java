@@ -8,12 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 //AppCompat utiliza retrocompatividade com outras activity e necessariamente irá herda da AppComptActivity
 public class MainActivity extends AppCompatActivity {
+
     TextView textView;
-
-    public EditText txtNum1;
-    public EditText txtNum2;
-    public TextView ldlResultado;
-
+    EditText txtA;
+    EditText txtB;
 
     @Override
     //O metodo onCreate é o primeiro ser chamado pelo AndroidStudio, e é utilizado como ponto de partida
@@ -34,38 +32,63 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*
-        3 - findViewById irá criar uma referência para o elemento da interface gráfica e eu vou
-        adicionar essa referência como atributo da classe. Porém deve-se garantir que um ID foi foi
-        configurado no código XML na marcação da view, como está abaixo - txtNum1, txtNum2, ldlResultado
-        foram configurado em app -> res(resource) -> layout -> activity_main.xml. Como o metodo
-        findViewById retorna o objeto da classe View é necessário sempre converter esse objeto para
-        o tipo de dado específico conrrespondete. R.id acessa o rsource
+        * 3 - findViewById irá criar uma referência para o elemento da interface gráfica e eu vou
+        * adicionar essa referência como atributo da classe. Porém deve-se garantir que um ID foi
+        * foi configurado no código XML na marcação da view, como está abaixo - txtA, txtB,
+        * onSoma foram configurado em app -> res(resource) -> layout -> activity_main.xml.
+        * Como o metodo findViewById retorna o objeto da classe View é necessário sempre converter
+        * esse objeto para o tipo de dado específico conrrespondete. R.id acessa o rsource
         */
 
-        textView = (TextView)findViewById(R.id.textView);
 
+
+        textView = findViewById(R.id.textView);
         System.out.println(textView.getText());
-        this.txtNum1 = findViewById(R.id.txtNum1);
-        this.txtNum2 = findViewById(R.id.txtNum2);
-        this.ldlResultado = findViewById(R.id.ldlResultado);
+        /*
+        * Para acessar um texto inserido pelo usuário em uma caixa de texto, precisamos invocar
+        * primeiramente o método findViewById para obter uma referência ao elemento EditText correspondente e de posse dessa referência invocar getText.
+        */
+        this.txtA = (EditText)findViewById(R.id.txtA);
+        this.txtB = (EditText)findViewById(R.id.txtB);
+
     }
-   /* float number1 = 6;
-    float number2 = 4;
+    public void onSoma(View view){
+        /*
+        *Os métodos setText e getText podem ser chamados tanto em objetos da classe TextView
+        *quanto em objetos da classe EditText.
+        */
 
-    //Instaciando o metodo Operacoes
-    Operacoes operacoes = new Operacoes(number1, number2);
-		System.out.println(operacoes.soma());
-		System.out.println(operacoes.subtracao());
-		System.out.println(operacoes.multiplicacao());
-		System.out.println(operacoes.divisao());*/
-        public void somar(View view){
+        int a = Integer.parseInt(txtA.getText().toString());
+        int b = Integer.parseInt(txtB.getText().toString());
 
-        int num1 = Integer.parseInt(txtNum1.getText().toString());
-        int num2 = Integer.parseInt(txtNum2.getText().toString());
-        int total = num1 + num2;
+        Operacoes operacoes = new Operacoes(a,b);
+        textView.setText(String.valueOf(operacoes.somar()));
+    }
 
-        //Metodo converte qualquer coisa para string
-        this.ldlResultado.setText(String.valueOf(total));
+    public void onSubtrair(View view){
 
-        }
+        int a = Integer.parseInt(txtA.getText().toString());
+        int b = Integer.parseInt(txtB.getText().toString());
+
+        Operacoes operacoes = new Operacoes(a,b);
+        textView.setText(String.valueOf(operacoes.subtrair()));
+    }
+
+    public void onMultiplicar(View view){
+
+        int a = Integer.parseInt(txtA.getText().toString());
+        int b = Integer.parseInt(txtB.getText().toString());
+
+        Operacoes operacoes = new Operacoes(a,b);
+        textView.setText(String.valueOf(operacoes.multiplicar()));
+    }
+
+    public void onDividir(View view){
+
+        int a = Integer.parseInt(txtA.getText().toString());
+        int b = Integer.parseInt(txtB.getText().toString());
+
+        Operacoes operacoes = new Operacoes(a,b);
+        textView.setText(String.valueOf(operacoes.dividir()));
+    }
 }

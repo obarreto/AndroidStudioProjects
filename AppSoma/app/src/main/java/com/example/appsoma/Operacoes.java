@@ -11,19 +11,19 @@ public class Operacoes {
         this.b = b;
     }
 
-    public float soma(){
+    public float somar(){
         return a + b;
     }
 
-    public float subtracao(){
+    public float subtrair(){
         return a - b;
     }
 
-    public float multiplicacao(){
+    public float multiplicar(){
         return a * b;
     }
 
-    public float divisao(){
+    public float dividir(){
         return a / b;
     }
 }
