@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtA"
-        android:text="Insira o valor de A"/>
+        android:hint="@string/hint"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtB"
-        android:text="Insira o valor de B"/>
+        android:hint="@string/hint2"/>
 
     <Button
         android:layout_width="match_parent"

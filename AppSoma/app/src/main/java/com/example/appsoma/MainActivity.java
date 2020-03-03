@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 //AppCompat utiliza retrocompatividade com outras activity e necessariamente irá herda da AppComptActivity
 public class MainActivity extends AppCompatActivity {
 
@@ -18,16 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         /*
-        1 - super.onCreate avisa ao sistema Android que além do codigo que vamos inserir aqui , queremos
-        que o código que está no método onCreate da classe pai seja executado. Caso não insira essa
-        chamada a exceção "Super not called exception" será dispara.
+        * 1 - super.onCreate avisa ao sistema Android que além do codigo que vamos inserir aqui , queremos
+        * que o código que está no método onCreate da classe pai seja executado. Caso não insira essa
+        * chamada a exceção "Super not called exception" será disparada.
         */
         super.onCreate(savedInstanceState);
 
         /*
-        2 - Essa chamada recebe como parâmetro a id do código XML que servirá de interface gráfica
-        para esta activity. Em set.ContentView, podemos acessar os elementos que estão que estão no
-        arquivo XML precedido por R.layout
+        * 2 - Essa chamada recebe como parâmetro a id do código XML que servirá de interface gráfica
+        * para esta activity. Em set.ContentView, podemos acessar os elementos que estão que estão no
+        * arquivo XML precedido por R.layout
         */
         setContentView(R.layout.activity_main);
 
@@ -39,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         * Como o metodo findViewById retorna o objeto da classe View é necessário sempre converter
         * esse objeto para o tipo de dado específico conrrespondete. R.id acessa o rsource
         */
-
-
 
         textView = findViewById(R.id.textView);
         System.out.println(textView.getText());
@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         Operacoes operacoes = new Operacoes(a,b);
         textView.setText(String.valueOf(operacoes.somar()));
+
+        Toast toast = Toast.makeText(this, "Sum", Toast.LENGTH_SHORT );
+        toast.show();
     }
 
     public void onSubtrair(View view){
@@ -72,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
         Operacoes operacoes = new Operacoes(a,b);
         textView.setText(String.valueOf(operacoes.subtrair()));
+
+        Toast toast = Toast.makeText(this, "Subtract", Toast.LENGTH_SHORT );
+        toast.show();
     }
 
     public void onMultiplicar(View view){
@@ -81,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
         Operacoes operacoes = new Operacoes(a,b);
         textView.setText(String.valueOf(operacoes.multiplicar()));
+
+        Toast toast = Toast.makeText(this, "Multiplication", Toast.LENGTH_SHORT );
+        toast.show();
     }
 
     public void onDividir(View view){
@@ -90,5 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
         Operacoes operacoes = new Operacoes(a,b);
         textView.setText(String.valueOf(operacoes.dividir()));
+
+        Toast toast = Toast.makeText(this, "Division", Toast.LENGTH_SHORT );
+        toast.show();
     }
 }

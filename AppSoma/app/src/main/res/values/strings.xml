@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppSoma</string>
+    <string name="hint">Insert a number integer</string>
+    <string name="hint2">Insert a number integer</string>
 </resources>
