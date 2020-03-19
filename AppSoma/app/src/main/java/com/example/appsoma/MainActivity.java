@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     EditText txtA;
     EditText txtB;
+    EditText txtC;
 
     @Override
     //O metodo onCreate é o primeiro ser chamado pelo AndroidStudio, e é utilizado como ponto de partida
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         */
         this.txtA = (EditText)findViewById(R.id.txtA);
         this.txtB = (EditText)findViewById(R.id.txtB);
+        this.txtC = (EditText)findViewById(R.id.txtC);
 
     }
     public void onSoma(View view){
@@ -58,22 +60,24 @@ public class MainActivity extends AppCompatActivity {
         *quanto em objetos da classe EditText.
         */
 
-        int a = Integer.parseInt(txtA.getText().toString());
-        int b = Integer.parseInt(txtB.getText().toString());
+        int pesoCapsula = Integer.parseInt(txtA.getText().toString());
+        int capsulaSlHumid = Integer.parseInt(txtB.getText().toString());
+        int capsulaSlSeco = Integer.parseInt(txtC.getText().toString());
 
-        Operacoes operacoes = new Operacoes(a,b);
+        Operacoes operacoes = new Operacoes(pesoCapsula,capsulaSlHumid,capsulaSlSeco);
         textView.setText(String.valueOf(operacoes.somar()));
 
-        Toast toast = Toast.makeText(this, "Sum", Toast.LENGTH_SHORT );
+        Toast toast = Toast.makeText(this, "H média ou Speedy", Toast.LENGTH_SHORT );
         toast.show();
     }
 
-    public void onSubtrair(View view){
+   /* public void onSubtrair(View view){
 
         int a = Integer.parseInt(txtA.getText().toString());
         int b = Integer.parseInt(txtB.getText().toString());
+        int c = Integer.parseInt(txtC.getText().toString());
 
-        Operacoes operacoes = new Operacoes(a,b);
+        Operacoes operacoes = new Operacoes(a,b,c);
         textView.setText(String.valueOf(operacoes.subtrair()));
 
         Toast toast = Toast.makeText(this, "Subtract", Toast.LENGTH_SHORT );
@@ -84,8 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
         int a = Integer.parseInt(txtA.getText().toString());
         int b = Integer.parseInt(txtB.getText().toString());
+        int c = Integer.parseInt(txtC.getText().toString());
 
-        Operacoes operacoes = new Operacoes(a,b);
+        Operacoes operacoes = new Operacoes(a,b,c);
         textView.setText(String.valueOf(operacoes.multiplicar()));
 
         Toast toast = Toast.makeText(this, "Multiplication", Toast.LENGTH_SHORT );
@@ -96,11 +101,12 @@ public class MainActivity extends AppCompatActivity {
 
         int a = Integer.parseInt(txtA.getText().toString());
         int b = Integer.parseInt(txtB.getText().toString());
+        int c = Integer.parseInt(txtC.getText().toString());
 
-        Operacoes operacoes = new Operacoes(a,b);
+        Operacoes operacoes = new Operacoes(a,b,c);
         textView.setText(String.valueOf(operacoes.dividir()));
 
         Toast toast = Toast.makeText(this, "Division", Toast.LENGTH_SHORT );
         toast.show();
-    }
+    }*/
 }

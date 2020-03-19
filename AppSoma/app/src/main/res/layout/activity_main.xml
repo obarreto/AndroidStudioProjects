@@ -19,11 +19,17 @@
         android:id="@+id/txtB"
         android:hint="@string/hint2"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtC"
+        android:hint="@string/hint3"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSoma"
-        android:text="+"/>
+        android:text="Humidade"/>
 
     <Button
         android:layout_width="match_parent"
